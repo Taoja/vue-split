@@ -1,0 +1,6 @@
+/**
+px转rem单位，px单位取UI稿标注单位即可
+**/
+@function p2r ($px, $dpr: 2, $base: 50 ) {
+  @return $px / $base / $dpr * 1rem
+}
