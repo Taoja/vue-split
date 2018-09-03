@@ -1,16 +1,19 @@
-const black = () => import('black')
-const white = () => import('white')
-const orange = () => import('orange')
+var home = () => import('home')
+var white = () => import('white')
+var orange = () => import('orange')
+var flex = () => import('flex')
+var header = () => import('header')
+var cell = () => import('cell')
 
 const routers = [
   {
     path: '/',
-    redirect: '/black'
+    redirect: '/home'
   },
   {
-    path: '/black',
-    name: 'black',
-    component: black
+    path: '/home',
+    name: 'home',
+    component: home
   },
   {
     path: '/white',
@@ -21,6 +24,21 @@ const routers = [
     path: '/orange',
     name: 'orange',
     component: orange
+  },
+  {
+    path: '/flex',
+    name: 'flex',
+    component: flex
+  },
+  {
+    path: '/header',
+    name: 'header',
+    component: header
+  },
+  {
+    path: '/cell',
+    name: 'cell',
+    component: cell
   }
 ]
 

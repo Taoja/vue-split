@@ -1,10 +1,10 @@
 <template>
-  <v-page ref="page">
-    <v-header slot="top"><div @click="titleClick">orange</div></v-header>
+  <t-page ref="page">
+    <t-header slot="top"><div @click="titleClick">orange</div></t-header>
     <div>
       
     </div>
-  </v-page>
+  </t-page>
 </template>
 <script>
 import { mapGetters } from 'vuex'

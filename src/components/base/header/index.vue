@@ -6,7 +6,9 @@
       </slot>
     </div>
     <div class="middle">
-      <slot></slot>
+      <slot>
+        <div>{{title}}</div>
+      </slot>
     </div>
     <div class="right">
       <slot name="right">
@@ -27,7 +29,8 @@ export default {
         }]
       }
     },
-    rightOptions: Array
+    rightOptions: Array,
+    title: String
   },
   methods: {
     ...mapMutations(['back']),
@@ -56,6 +59,7 @@ export default {
   background-color: white;
   color: #222;
   font-size: 0.3rem;
+  z-index: 1;
   @include headShadow;
   >*{
     height: 100%;

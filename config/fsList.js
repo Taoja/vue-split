@@ -25,5 +25,5 @@ modules.forEach(function (a) {
 
 module.exports = {
   modules,
-  pages
+  pages,
 }

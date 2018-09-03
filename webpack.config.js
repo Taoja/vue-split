@@ -3,6 +3,7 @@ const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const {packageList, importList, copyStatic} = require('./config/splitConf')
+const {pages} = require('./config/fsList')
 const webpack = require('webpack')
 const isDev = process.env.NODE_ENV === 'development'
 function resolve(dir) {
@@ -85,6 +86,7 @@ const config = {
     'Vuex': 'window.Vuex',
     'vuex': 'window.Vuex',
     'vue-router': 'window.VueRouter',
+    'pageList': JSON.stringify(pages),
     ...importList()
   },
   /**

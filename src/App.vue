@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <transition
-    :enter-active-class="goback ? 'faster animated slideInLeft' : 'faster animated slideInRight'"
-    :leave-active-class="goback ? 'faster animated slideOutRight' : 'faster animated slideOutLeft'">
+    :enter-active-class="goback ? 'faster animated staticInLeft' : 'faster animated slideInRight2'"
+    :leave-active-class="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'">
       <router-view></router-view>
     </transition>
   </div>
@@ -20,10 +20,24 @@ export default {
       this.addStack({to: to.path, from: from.path}) //压栈
       next()
     })
-    this.$router.push('/')
+    this.resetRouterGo()
   },
   methods: {
     ...mapMutations(['addStack', 'addLoaded']),
+    resetRouterGo () {
+      this.$router.go = (index = -1) => {
+        return new Promise((resolve, reject) => {
+          let position = this.__pageStack.length + index -1 //计算返回在栈中位置
+          let path = this.__pageStack[position] //获取去向名
+          if (path) {
+            resolve(path)
+            this.$router.push(path) //跳转至去向页面
+          } else {
+            reject && reject()
+          }
+        })
+      }
+    }
   }
 }
 </script>
@@ -37,5 +51,92 @@ body{
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: #f6f6f6;
+}
+#app>.main{
+  background-color: #f6f6f6;
+  position: absolute;
+}
+
+@-webkit-keyframes staticOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes staticOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.staticOutLeft, .staticInLeft {
+  z-index: 2;
+  -webkit-animation-name: staticOutLeft;
+  animation-name: staticOutLeft;
+}
+
+@-webkit-keyframes slideInRight2 {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes slideInRight2 {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 0%;
+  }
+}
+
+.slideInRight2 {
+  z-index: 3;
+  -webkit-animation-name: slideInRight2;
+  animation-name: slideInRight2;
+}
+
+@-webkit-keyframes slideOutRight2 {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes slideOutRight2 {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+.slideOutRight2 {
+  z-index: 3;
+  -webkit-animation-name: slideOutRight2;
+  animation-name: slideOutRight2;
 }
 </style>

@@ -1,17 +1,21 @@
 <template>
   <t-page ref="page">
-    <t-header slot="top"><div @click="titleClick">white</div></t-header>
+    <t-header slot="top">Group&Cell</t-header>
     <div>
-      
+      <t-group title="基础用法">
+        <t-cell title="基础用法"></t-cell>
+      </t-group>
     </div>
   </t-page>
 </template>
 <script>
-import { mapGetters } from 'vuex'
 export default {
   methods: {
     titleClick () {
       this.$router.push('orange')
+    },
+    leftClick (e) {
+      alert('自定义按钮点击' + e)
     }
   }
 }

@@ -2,5 +2,12 @@
 px转rem单位，px单位取UI稿标注单位即可
 **/
 @function p2r ($px, $dpr: 2, $base: 50 ) {
-  @return $px / $base / $dpr * 1rem
+  @return $px / $base / $dpr * 1rem;
+}
+
+/**
+2.0版rem单位转3.0版rem
+**/
+@function old2new ($rem, $old: 37.5, $new: 50) {
+  @return $rem * $old / $new * 1rem;
 }

@@ -1,3 +1,3 @@
-import black from './black/index.vue'
+import home from './home/index.vue'
 
-window.black = black
+window.home = home

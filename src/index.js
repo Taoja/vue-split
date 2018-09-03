@@ -7,9 +7,14 @@ import base from '@c/base'
 import '@j/App'
 import '@s'
 
+console.log(routes)
+
+window.location = 'http://localhost:8081/#/'
+
 let script = document.createElement('script')
 script.type = 'text/javascript'
 script.onload = () => {
+  store.state.loadedPages.push(routes[0].redirect.split('/')[1])
   Vue.use(VueRouter)
   Vue.use(base)
   const router=new VueRouter({
@@ -23,6 +28,7 @@ script.onload = () => {
     store,
     components: {App}
   })
+  document.body.removeChild(script)
 }
 
 script.src = 'js' + routes[0].redirect + '.js'

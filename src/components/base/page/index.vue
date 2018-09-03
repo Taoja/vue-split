@@ -78,7 +78,7 @@ export default {
     }
     >.middle{
       flex: 1 0 1px;
-      overflow: hidden;
+      overflow: auto;
     }
     >.bottom{
       flex: 0 1 auto;

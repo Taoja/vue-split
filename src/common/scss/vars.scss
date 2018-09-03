@@ -1,0 +1,56 @@
+/*
+ *   MINIMIZE RESET STYLES
+ *    @Author Liuls  
+ *
+ */
+
+
+
+//字体
+$font-family-special:'Helvetica Neue'; //英文、数字、特殊符号使用
+
+//主要色彩
+$color-cm: #e53935;   //color main  red
+$color-cb: #319df5;   //color blue
+$color-co: #f59d18;   //color orange
+$color-cg: #e0bf70;   //color gold
+
+//文字色值
+$font-color-t1: #222222;  
+$font-color-t2: #666666;
+$font-color-t3: #8f8f8f;
+$font-color-t4: #bbbbbb;
+$font-color-t5: #ffffff;
+
+//背景和分割线
+$line-color: #e6e6e6; //分割线
+$global-bg: #f6f6f6; //全局背景色
+
+//字体排版
+$font-h1: .34rem; //用于导航标题，全局按钮
+$font-h2: .32rem; //用于列表标题
+$font-h3: .30rem; //用于导航两侧文字按钮、文本标题、正文
+$font-h4: .28rem; //用于副标题、段落正文、正文、二级banner、tabbar切换文字、表单小题/副标题
+$font-h5: .26rem; //用于副标题、辅助性或提示文字、小按钮文字
+$font-h6: .24rem; //用于副标题、辅助性或提示文字
+// 18 - 22px用于标签文案
+
+//以上为整理过的最新规范
+$color-gray: #9B9B9B;
+$color-gray-light: #fbfbfb;
+$color-font: #222222;
+$color-font-second: #666666;
+$color-font-third: #8f8f8f;
+$color-font-fourth: #bbbbbb;
+$color-blue: #319df5;
+$color-golden: #e0bf70;
+$color-red: #e53935;
+$color-orange: #f47000;
+$color-white: #ffffff;
+$divider-bg: #eeeeee;
+$group-bg: white;
+$divider-height: 1px;
+$header-height: .88rem;
+
+//group相关
+$group-padding: .4rem 0px .2rem .3rem;
