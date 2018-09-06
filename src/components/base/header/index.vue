@@ -18,7 +18,6 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
 export default {
   props: {
     leftOptions: {
@@ -33,7 +32,6 @@ export default {
     title: String
   },
   methods: {
-    ...mapMutations(['back']),
     leftClick (e) {
       if (this.$listeners.leftClick) {
         this.$emit('leftClick', e)
@@ -58,7 +56,7 @@ export default {
   align-items: center;
   background-color: white;
   color: #222;
-  font-size: 0.3rem;
+  font-size: 0.34rem;
   z-index: 1;
   @include headShadow;
   >*{
@@ -79,7 +77,9 @@ export default {
   }
   >.middle{
     text-align: center;
-    line-height: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

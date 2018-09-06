@@ -5,12 +5,18 @@
 	position: relative;
 	&::after{
 		content: "";
-		border-bottom: 1px solid #e6e6e6;
+		background-color: #e6e6e6;
 		height: 1px;
 		transform: scaleY(0.5);
 		width: 100%;
 		position: absolute;
-		bottom: 0px;
+		bottom: -1px;
 		left: 0px;
 	}
+}
+
+@mixin ellipsis() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

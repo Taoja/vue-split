@@ -5,7 +5,7 @@
   "main": "ab.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
-    "dev": "NODE_ENV=development webpack-dev-server --mode development"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development"
   },
   "author": "",
   "license": "ISC",
@@ -41,6 +41,7 @@
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7",
     "yargs": "^12.0.1"
   },
   "dependencies": {}

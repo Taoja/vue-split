@@ -1,9 +1,10 @@
 var home = () => import('home')
-var white = () => import('white')
-var orange = () => import('orange')
 var flex = () => import('flex')
 var header = () => import('header')
 var cell = () => import('cell')
+var actionSheet = () => import('actionSheet')
+var toast = () => import('toast')
+var dialog = () => import('dialog')
 
 const routers = [
   {
@@ -14,16 +15,6 @@ const routers = [
     path: '/home',
     name: 'home',
     component: home
-  },
-  {
-    path: '/white',
-    name: 'white',
-    component: white
-  },
-  {
-    path: '/orange',
-    name: 'orange',
-    component: orange
   },
   {
     path: '/flex',
@@ -39,6 +30,21 @@ const routers = [
     path: '/cell',
     name: 'cell',
     component: cell
+  },
+  {
+    path: '/actionSheet',
+    name: 'actionSheet',
+    component: actionSheet
+  },
+  {
+    path: '/toast',
+    name: 'toast',
+    component: toast
+  },
+  {
+    path: '/dialog',
+    name: 'dialog',
+    component: dialog
   }
 ]
 

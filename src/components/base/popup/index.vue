@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <div class="v-mask" v-if="value && mask.showMask" @click="maskClick" :style="'background-color:' + (multi ? 'transparent' : mask.bgColor)"></div>
+  <div v-show="bodyShow" class="popupBody" :style="`align-items: ${popup.position}`">
     <transition
-    :enter-active-class="enter"
-    :leave-active-class="leave"
+    enter-active-class="animated fadeIn faster"
+    leave-active-class="animated fadeOut faster"
+    @after-leave="afterLeave"
+    >
+      <div class="v-mask" v-if="value && mask.showMask" @click="maskClick" :style="'background-color:' + (multi ? 'transparent' : mask.bgColor)"></div>
+    </transition>
+    <transition
+    :enter-active-class="popup.enter"
+    :leave-active-class="popup.leave"
     >
       <div class="popup" v-if="value" :style="'background-color:' + popup.bgColor">
         <slot></slot>
@@ -12,14 +18,13 @@
   </div>
 </template>
 <script>
-window._popupEvent || (window._popupEvent = new Event('popupHide'))
+// window._popupEvent || (window._popupEvent = new Event('popupHide'))
 // window._popupList || (window._popupList = [])
 export default {
   data () {
     return {
-      enter: 'animated slideInUp faster',
-      leave: 'animated slideOutDown faster',
-      multi: false
+      multi: false,
+      bodyShow: false
     }
   },
   props: {
@@ -45,7 +50,10 @@ export default {
       type: Object,
       default () {
         return {
-          bgColor: 'white'
+          bgColor: 'white',
+          enter: 'animated slideInUp faster',
+          leave: 'animated slideOutDown faster',
+          position: 'flex-end'
         }
       }
     }
@@ -58,17 +66,19 @@ export default {
     }
   },
   methods: {
+    afterLeave () {
+      this.bodyShow = false
+      this.$emit('afterLeave')
+    },
     maskClick () {
       if (this.mask.clickHide) {
-        // _popupList = []
-        App.dispatch(_popupEvent)
+        this.hide()
       }
     },
     hide () {
-      this.hasMask = false
-      this.$emit('input', false)
+      this.value = false
       this.$emit('onHide')
-      App.off('popupHide', this.hide)
+      // App.off('popupHide', this.hide)
     },
     show () {
       // if (_popupList.includes(this)) {
@@ -77,7 +87,8 @@ export default {
       //   _popupList.length > 0 && _popupList[_popupList.length - 1].$emit('input', false)
       //   _popupList.push(this)
       // }
-      App.on('popupHide', this.hide)
+      // App.on('popupHide', this.hide)
+      this.bodyShow = true
       this.$emit('onShow')
     },
     back () {
@@ -99,12 +110,20 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.popup{
+.popupBody{
+  // position: absolute;
   position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+.popup{
+  position: relative;
   width: 100%;
-  bottom: 0px;
-  left: 0px;
   transition-duration: 0.1s !important;
+  z-index: 3;
 }
 .transparent {
   background-color: transparent !important;
@@ -115,5 +134,6 @@ export default {
   height: 100%;
   left: 0;
   top: 0;
+  z-index: 2;
 }
 </style>

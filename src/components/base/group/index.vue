@@ -22,5 +22,16 @@ export default {
   font-size: $font-h4;
   padding: $group-padding;
 }
+.group{
+  .cellBody:last-child::after{
+    background-color: transparent;
+  }
+}
 </style>
+<style>
+.group .cell:last-child .cellBody::after{
+    background-color: transparent;
+}
+</style>
+
 

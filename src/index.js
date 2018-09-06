@@ -9,7 +9,7 @@ import '@s'
 
 console.log(routes)
 
-window.location = 'http://localhost:8081/#/'
+window.location = '/#/'
 
 let script = document.createElement('script')
 script.type = 'text/javascript'

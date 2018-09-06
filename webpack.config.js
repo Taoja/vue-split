@@ -15,7 +15,7 @@ const config = {
    * 热更新调试配置
    */
   devServer: isDev ? {
-    host: 'localhost',    // 服务器的IP地址，可以使用IP也可以使用localhost
+    host: '0.0.0.0',    // 服务器的IP地址，可以使用IP也可以使用localhost
     compress: true,    // 服务端压缩是否开启
     port: 8081, // 端口
     historyApiFallback: false, //对应router里的history模式
