@@ -36,7 +36,7 @@ var packageList = function () {
 var importList = function () {
   var package = {}
   pages.forEach(function (a) {
-    package[a.page] = 'window.' + a.page
+    package[a.page] = 'window.__pages.' + a.page
   })
   return package
 }

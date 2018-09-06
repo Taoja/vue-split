@@ -1,3 +1,7 @@
-import home from './home/index.vue'
-
-window.home = home
+const __pages = {
+  home: require('./home'),
+}
+top.__pages = {
+  ...__pages,
+  ...top.__pages
+}

@@ -48,4 +48,21 @@ const routers = [
   }
 ]
 
+// import pageList from 'pageList'
+
+// const routers = [
+//   {
+//     path: '/',
+//     redirect: '/home'
+//   }
+// ]
+
+// pageList.forEach((a) => {
+//   routers.push({
+//     path: `/${a.page}`,
+//     name: a.page,
+//     component: resolve => require.ensure([], () => resolve(require(a.page)), a.page)
+//   })
+// })
+
 export default routers
