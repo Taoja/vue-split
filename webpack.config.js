@@ -9,7 +9,7 @@ const isDev = process.env.NODE_ENV === 'development'
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
-
+// console.log(packageList(), importList())
 const config = {
   /**
    * 热更新调试配置
@@ -147,6 +147,21 @@ const config = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: path.resolve(__dirname, 'src/router/index.js'),
+        use: {
+          loader: './config/autoSetConfig.js',
+          options: {
+            pages
+          }
+        } 
+      },
+      {
+        test: /src\/modules\/[_a-zA-Z0-9]+\/index.js/,
+        use: {
+          loader: './config/importModules.js',
+        } 
       }
     ]
   }

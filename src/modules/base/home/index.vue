@@ -3,14 +3,14 @@
     <t-header slot="top">演示</t-header>
     <div>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('flex')">Flex</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('header')">Header</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('cell')">Group&Cell</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_flex')">Flex</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_header')">Header</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_cell')">Group&Cell</t-flex>
       </t-flex>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('actionSheet')">actionSheet</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('toast')">toast</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('dialog')">dialog</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_actionSheet')">actionSheet</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_toast')">toast</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_dialog')">dialog</t-flex>
       </t-flex>
     </div>
   </t-page>
