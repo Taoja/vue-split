@@ -7,8 +7,6 @@ import base from '@c/base'
 import '@j/App'
 import '@s'
 
-console.log(routes)
-
 window.location = '/#/'
 
 let script = document.createElement('script')
