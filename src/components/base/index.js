@@ -5,6 +5,8 @@ import tGroup from './group'
 import tCell from './cell'
 import sLogo from './symbolLogo'
 import tPopup from './popup'
+import tInput from './input'
+import tButton from './button'
 import './toast/index.js'
 import './dialog/index.js'
 
@@ -17,5 +19,7 @@ export default {
     Vue.component('tCell', tCell)
     Vue.component('sLogo', sLogo)
     Vue.component('tPopup', tPopup)
+    Vue.component('tInput', tInput)
+    Vue.component('tButton', tButton)
   }
 }

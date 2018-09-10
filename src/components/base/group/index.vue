@@ -18,8 +18,8 @@ export default {
 @import '@s/vars.scss';
 @import '@s/mixin.scss';
 .title{
-  color: $color-font-third;
-  font-size: $font-h4;
+  color: $font-color-t3;
+  font-size: $font-h3;
   padding: $group-padding;
 }
 .group{

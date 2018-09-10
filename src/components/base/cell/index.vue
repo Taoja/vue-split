@@ -1,7 +1,7 @@
 <template>
   <div class="cell" @click="click" :class="{'beclick' : beclick}">
     <div class="cellBody">
-      <div class="left">
+      <div class="left" v-if="noLeft">
         <slot name="left">
           <div class="icon">
             <slot name="icon"></slot>
@@ -19,6 +19,7 @@
         <div v-if="isLink !== undefined" class="icon">
           <i class="iconfont icon-list_icon_path-"></i>
         </div>
+        <slot name="extend"></slot>
       </div>
     </div>
   </div>
@@ -41,6 +42,11 @@ export default {
     },
     isLink: ''
   },
+  computed: {
+    noLeft () {
+      return this.title || this.$slots.left || this.$slots.icon
+    }
+  },
   methods: {
     click (e) {
       if (this.isLink !== undefined && !this.beclick) {
@@ -56,18 +62,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '@s/mixin.scss';
+@import '@s/vars.scss';
 .cell{
-  height: 1.04rem;
+  min-height: 1.04rem;
   background-color: white;
   >.cellBody{
-    margin-left: .3rem;
+    margin-left: $safe-margin;
     display: flex;
     justify-content: space-between;
     height: 100%;
     @include border;
     >.left{
       flex: 0 1 auto;
-      height: 100%;
       margin-right: .32rem;
       display: flex;
       align-items: center;
@@ -83,13 +89,15 @@ export default {
       flex: 1 0 1px;
       display: flex;
       align-items: stretch;
-      justify-content: flex-end;
       line-height: 1.04rem;
       margin-right: .3rem;
       @include ellipsis;
       >.value{
         color: #8f8f8f;
         font-size: .32rem;
+        width: 100%;
+        text-align: right;
+        flex: 1;
       }
       >.icon{
         color: #ccc;

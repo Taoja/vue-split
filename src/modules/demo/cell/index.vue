@@ -5,6 +5,9 @@
       <t-group title="基础用法">
         <t-cell title="标题">基础用法</t-cell>
       </t-group>
+      <t-group title="不带标题">
+        <t-cell>不带标题</t-cell>
+      </t-group>
       <t-group title="双行用法">
         <t-cell title="标题文字" tips="描述信息">双行用法</t-cell>
       </t-group>
