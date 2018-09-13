@@ -83,6 +83,7 @@ export default {
         align-items: stretch;
         justify-content: space-around;
         height: 100%;
+        max-width: 5rem;
       }
     }
     >.right{
@@ -102,6 +103,8 @@ export default {
       >.icon{
         color: #ccc;
         margin-left: .24rem;
+        display: flex;
+        align-items: center;
       }
     }
   }

@@ -1,1 +1,1 @@
-module.exports = ['flex', 'header', 'cell', 'actionSheet', 'dialog', 'toast', 'input', 'cellInput', 'button']
+module.exports = ['flex', 'header', 'cell', 'actionSheet', 'dialog', 'toast', 'input', 'cellInput', 'button', 'switch']

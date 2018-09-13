@@ -26,6 +26,14 @@
         <t-button class="top" :color="{main: '#e0bf70', plain: '#fff'}">按钮</t-button>
         <t-button class="top" :color="{main: '#e0bf70', plain: '#fff'}" plain=true>反按钮</t-button>
       </t-group>
+      <t-group title="自定义按钮内容">
+        <t-button class="top">
+          <div>
+            <i class="iconfont icon-daozhang"></i>
+            <span>付费</span>
+          </div>
+        </t-button>
+      </t-group>
     </div>
   </t-page>
 </template>

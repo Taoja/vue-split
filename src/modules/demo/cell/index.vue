@@ -37,6 +37,9 @@
         <t-cell title="标题" isLink>基础用法</t-cell>
         <t-cell title="标题文字" tips="描述信息" isLink>双行用法</t-cell>
       </t-group>
+      <t-group title="标题超长">
+        <t-cell title="标题超长标题超长标题超长标题超长标题超长" isLink></t-cell>
+      </t-group>
     </div>
   </t-page>
 </template>
