@@ -27,21 +27,21 @@ export default {
 <style lang="scss" scoped>
 @import '@s/vars.scss';
 .Tswitch{
-  width: 1.2rem;
-  border-radius: .6rem;
-  padding: .1rem;
-  box-sizing: border-box;
-  transition: all 1s;
+  width: 1rem;
+  height: .5rem;
+  border-radius: .5rem;
+  transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1) 0s;
+  position: relative;
   &_close{
     background-color: #eee;
     >.TswitchBtn{
-      transform: translateX(0rem);
+      left: .05rem;
     }
   }
   &_open{
     background-color: $color-cm;
     >.TswitchBtn{
-      transform: translateX(1rem);
+      left: calc(100% - .05rem - .4rem);
     }
   }
   >.TswitchBtn{
@@ -49,7 +49,9 @@ export default {
     height: .4rem;
     border-radius: 100%;
     background-color: white;
-    transition: all 1s;
+    transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1) 0s;
+    position: absolute;
+    top: .05rem;
   }
 }
 </style>
