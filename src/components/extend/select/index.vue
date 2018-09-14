@@ -26,7 +26,12 @@
   </t-popup>
 </template>
 <script>
+import {tPopup, tHeader} from '../../'
 export default {
+  components: {
+    tPopup,
+    tHeader
+  },
   data () {
     return {
       // selected: ''

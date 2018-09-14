@@ -19,7 +19,7 @@
       </t-flex>
       <t-flex align="stretch" class="box">
         <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_switch')">switch</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_cellInput')">cellInput</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_tabSelect')">tabs</t-flex>
         <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_button')">button</t-flex>
       </t-flex>
     </div>

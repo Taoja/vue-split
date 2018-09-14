@@ -3,7 +3,7 @@ import App from './App'
 import VueRouter from 'vue-router'
 import routes from './router'
 import store from './store'
-import base from '@c/base'
+import base from '@c'
 import '@j/App'
 import '@s'
 

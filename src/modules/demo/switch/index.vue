@@ -3,15 +3,20 @@
     <t-header slot="top">switch</t-header>
     <div>
       <t-group title="switch基础用法">
-        <div>
+        <div class="ml">
           <t-switch v-model="theSwitch"></t-switch>
         </div>
+      </t-group>
+      <t-group title="与cell组合使用">
+        <t-cell title="标题文字">
+          <t-switch v-model="theSwitch"></t-switch>
+        </t-cell>
       </t-group>
     </div>
   </t-page>
 </template>
 <script>
-import tSwitch from '@c/extend/switch'
+import {tSwitch} from '@c'
 export default {
   components: {
     tSwitch
@@ -35,4 +40,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.ml{
+  margin-left: .3rem;
+}
 </style>

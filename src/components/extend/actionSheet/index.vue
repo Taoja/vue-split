@@ -21,7 +21,11 @@
   </t-popup>
 </template>
 <script>
+import {tPopup} from '../../'
 export default {
+  components: {
+    tPopup
+  },
   data () {
     return {
       // selected: ''

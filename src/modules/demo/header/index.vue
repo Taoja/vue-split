@@ -7,7 +7,7 @@
       </t-group>
       <t-group title="自定义title">
         <t-header>
-          <tab-select 
+          <t-tabs 
             v-model="tabSelectValue"
             :tabs="[{
               key: '乒乓球',
@@ -18,8 +18,14 @@
             },{
               key: '哈库拉玛塔塔',
               value: 'ball3'
+            },{
+              key: '哈库拉玛塔塔',
+              value: 'ball4'
+            },{
+              key: '哈库拉玛塔塔',
+              value: 'ball5'
             }]">
-          </tab-select>
+          </t-tabs>
         </t-header>
       </t-group>
       <t-group title="自定义按钮样式">
@@ -38,7 +44,7 @@
   </t-page>
 </template>
 <script>
-import tabSelect from '@c/extend/tabSelect'
+import {tTabs} from '@c'
 export default {
   data () {
     return {
@@ -46,7 +52,7 @@ export default {
     }
   },
   components: {
-    tabSelect
+    tTabs
   },
   methods: {
     titleClick () {

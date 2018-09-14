@@ -7,13 +7,13 @@
         <t-cell title="select" isLink @click="base2">{{asSelected.key}}</t-cell>
       </t-group>
     </div>
-    <t-as 
+    <t-action-sheet 
     v-model="as1"
     title="actionSheet"
     :data="asData"
     @click="as1Click"
     :selected="asSelected.value"
-    ></t-as>
+    ></t-action-sheet>
     <t-select
     v-model="selectSwitch"
     title="select"
@@ -26,11 +26,10 @@
   </t-page>
 </template>
 <script>
-import tAs from '@c/extend/actionSheet'
-import tSelect from '@c/extend/select'
+import { tActionSheet , tSelect} from '@c'
 export default {
   components: {
-    tAs,
+    tActionSheet,
     tSelect
   },
   data () {

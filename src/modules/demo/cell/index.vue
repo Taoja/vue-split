@@ -17,7 +17,7 @@
       <t-group title="自定义右侧功能">
         <t-cell title="标题文字">
           <div style="width: 5rem;">
-            <tab-select 
+            <t-tabs 
               v-model="tabSelectValue"
               :tabs="[{
                 key: '乒乓球',
@@ -29,7 +29,7 @@
                 key: '篮球',
                 value: 'ball3'
               }]">
-            </tab-select>
+            </t-tabs>
           </div>
         </t-cell>
       </t-group>
@@ -44,7 +44,7 @@
   </t-page>
 </template>
 <script>
-import tabSelect from '@c/extend/tabSelect'
+import {tTabs} from '@c'
 export default {
   data () {
     return {
@@ -52,7 +52,7 @@ export default {
     }
   },
   components: {
-    tabSelect
+    tTabs
   },
   methods: {
     titleClick () {

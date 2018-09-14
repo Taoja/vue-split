@@ -1,7 +1,8 @@
 <template>
-  <div class="main" v-if="tabs.length !== 0">
-    <div class="tabs">
-      <div @click="click(index)" :class="{'choiced': item.value === selected}" :key="index" v-for="(item, index) in tabs">{{item.key}}<s-logo :logo="selected === item.value ? 'tabs_icon_selected_u' : 'tabs_icon_normal_dow'" class="icon"></s-logo></div>
+  <div class="T_tabSelect">
+    <div class="T_tabSelect_warp" :style="`left: ${scrollX}px`">
+      <div @click="click(item)" v-for="(item, index) in tabs" :key="index" :ref="value === item.value ? 'choiced': ''" class="T_tabSelect_item" :class="{'T_tabSelect_choiced': value === item.value}">{{item.key}}</div>
+      <div class="T_tabSelect_bar" :style="width + left"></div>
     </div>
   </div>
 </template>
@@ -10,64 +11,69 @@
 export default {
   data () {
     return {
+      left: '',
+      width: '',
+      scrollX: 0
     }
   },
-  computed: {
-    selected () {
-      return this.value
+  props: {
+    tabs: Array,
+    value: String
+  },
+  watch: {
+    value: {
+      handler () {
+        this.$nextTick(() => {
+          let el = this.$refs.choiced[0]
+          this.width = `width: ${el.clientWidth}px;`
+          this.left = `left: ${el.offsetLeft}px;`
+          let warpWidth = el.parentElement.clientWidth
+          let windowWidth = el.parentElement.parentElement.clientWidth
+          let scrollX = -(el.offsetLeft + el.clientWidth/2) + windowWidth/2
+          this.scrollX = scrollX > 0 ? 0 : scrollX < -warpWidth + windowWidth ? -warpWidth + windowWidth : scrollX
+        })
+      },
+      immediate: true
     }
   },
   methods: {
     click (e) {
-      if (this.selected === this.tabs[e].value) {
-        this.$emit('input', '')
-      } else {
-        this.$emit('input', this.tabs[e].value)
-      }
+      this.$emit('input', e.value)
     }
-  },
-  props: {
-    tabs: {
-      type: Array,
-      default () {
-        return []
-      }
-    },
-    value: null
-  },
-  mounted () {
-    console.log(this.tabs)
   }
 }
 </script>
 <style lang="scss" scoped>
-@import '@s/functions.scss';
 @import '@s/vars.scss';
-.main{
-  background-color: white;
-  box-shadow: 0 1px old2new(0.08) rgba(51,51,51,0.06);
-  height: old2new(1.1733);
-  >.tabs{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    >div{
-      flex: 1 1 1px;
-      font-size: $font-h4;
-      color: $font-color-t2;
-      line-height: initial;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      >.icon{
-        font-size: px2rem(16);
-        margin-left: px2rem(16);
-      }
-    }
-    >.choiced{
-      color: #d81e06;
-    }
+.T_tabSelect{
+  position: relative;
+  height: .88rem;
+  overflow: hidden;
+  width: 100%;
+  &_warp{
+    height: .88rem;
+    white-space: nowrap;
+    display: -webkit-box;
+    position: absolute;
+    transition: all .5s;
+    min-width: 100%;
+  }
+  &_item{
+    margin: 0px .4rem;
+    color: #999;
+    font-size: .36rem;
+    height: .88rem;
+    line-height: .88rem;
+  }
+  &_choiced{
+    color: #333;
+  }
+  &_bar{
+    position: absolute;
+    height: .04rem;
+    background-color: $color-cm;
+    bottom: 0px;
+    transition: all .5s;
   }
 }
 </style>

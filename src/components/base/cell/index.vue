@@ -70,7 +70,7 @@ export default {
     margin-left: $safe-margin;
     display: flex;
     justify-content: space-between;
-    height: 100%;
+    min-height: 1.04rem;
     @include border;
     >.left{
       flex: 0 1 auto;
@@ -97,7 +97,9 @@ export default {
         color: #8f8f8f;
         font-size: .32rem;
         width: 100%;
-        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         flex: 1;
       }
       >.icon{
