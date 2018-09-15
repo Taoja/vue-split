@@ -59,7 +59,9 @@ export default {
       this.$router.push('orange')
     },
     leftClick (e) {
-      alert('自定义按钮点击' + e)
+      this.$dialog({
+        msg: '自定义按钮点击' + e
+      })
     }
   }
 }

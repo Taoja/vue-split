@@ -1,8 +1,23 @@
+<!-- tab筛选项 -->
+<!-- @author 黄武韬-->
+<!-- @prop tabs [Array] 按钮配置数组-->
+<!-- @event click 返回按钮状态对象 -->
+<!-- @example 
+  <tab-filter 
+    :tabs="[{
+      key: '价格',
+      value: 'price'
+    },{
+      key: '销量',
+      value: 'sold'
+    }]"
+    @tabClick="(e) => {console.log(e)}">
+  </tab-filter> 
+  {price: "none", sold: "up"}
+  -->
 <template>
-  <div class="main" v-if="tabs.length !== 0">
-    <div class="tabs">
-      <div @click="click(index)" :class="{'choiced': item.value === selected}" :key="index" v-for="(item, index) in tabs">{{item.key}}<s-logo :logo="selected === item.value ? 'tabs_icon_selected_u' : 'tabs_icon_normal_dow'" class="icon"></s-logo></div>
-    </div>
+  <div class="t_filter t_vars">
+    <div class="t_filter_item" :key="index" v-for="(item, index) in opt" :class="[item.status, {'t_filter_click': item.click}]" @click="click(index)">{{item.key}}</div>
   </div>
 </template>
 
@@ -10,64 +25,77 @@
 export default {
   data () {
     return {
+      opt: []
     }
   },
   computed: {
-    selected () {
-      return this.value
+    result () {
+      return this.opt.map(a => {
+        return a.status
+      })
     }
   },
   methods: {
     click (e) {
-      if (this.selected === this.tabs[e].value) {
-        this.$emit('input', '')
-      } else {
-        this.$emit('input', this.tabs[e].value)
-      }
+      this.opt.forEach(a => {
+        a.click = false
+      })
+      this.opt[e].click = true
+      this.opt[e].status = this.opt[e].status === 'up' ? 'down' : 'up'
+      this.$emit('click', this.result)
     }
   },
   props: {
-    tabs: {
-      type: Array,
-      default () {
-        return []
-      }
-    },
-    value: null
+    tabs: Array
   },
   mounted () {
-    console.log(this.tabs)
+    this.opt = this.tabs.map(x => {
+      return Object.assign({
+        status : 'none',
+        click: false
+      }, x)
+    })
   }
 }
 </script>
-<style lang="scss" scoped>
-@import '@s/functions.scss';
-@import '@s/vars.scss';
-.main{
+<style>
+@import '../../css/vars.css';
+.t_filter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: white;
-  box-shadow: 0 1px old2new(0.08) rgba(51,51,51,0.06);
-  height: old2new(1.1733);
-  >.tabs{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    >div{
-      flex: 1 1 1px;
-      font-size: $font-h4;
-      color: $font-color-t2;
-      line-height: initial;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      >.icon{
-        font-size: px2rem(16);
-        margin-left: px2rem(16);
-      }
-    }
-    >.choiced{
-      color: #d81e06;
-    }
-  }
+  box-shadow: var(--header-shadow);
+  height: var(--header-height);
+}
+.t_filter_item{
+  flex: 1 1 1px;
+  font-size: .28rem;
+  color: #666;
+  line-height: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.t_filter_item::after{
+  content: "";
+  background-size: 100% 100%;
+  width: 0.1rem;
+  height: 0.2rem;
+  margin-left: .16rem;
+  display: block;
+  line-height: initial;
+}
+.t_filter_click{
+  color: var(--color-cm);
+}
+.t_filter_item.none::after{
+  background-image: url('../../image/tab_icon_normal_normal@2x.png');
+}
+.t_filter_item.up::after{
+  background-image: url('../../image/tab_icon_up_normal@2x.png');
+}
+.t_filter_item.down::after{
+  background-image: url('../../image/tab_icon_down_normal@2x.png');
 }
 </style>

@@ -1,3 +1,6 @@
+import './base/toast/index.js'
+import './base/dialog/index.js'
+
 import tButton from './base/button'
 import tCell from './base/cell'
 import tDialog from './base/dialog/index.vue'
@@ -17,8 +20,6 @@ import tSwitch from './extend/switch'
 import tTabs from './extend/tabSelect'
 
 const base = () => {
-  require('./base/toast/index.js')
-  require('./base/dialog/index.js')
   return {
     install (Vue){
       Vue.component('tPage', tPage)
