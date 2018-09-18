@@ -21,7 +21,7 @@
   </t-popup>
 </template>
 <script>
-import {tPopup} from '../../'
+import tPopup from '../../base/popup'
 export default {
   components: {
     tPopup

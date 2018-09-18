@@ -18,6 +18,12 @@ import tFilter from './extend/filter'
 import tSelect from './extend/select'
 import tSwitch from './extend/switch'
 import tTabs from './extend/tabSelect'
+import tGrid from './extend/grid'
+import tCarousel from './extend/carousel'
+import tNotice from './extend/notice'
+import tCard from './extend/card'
+import tRow from './extend/row'
+import tTitle from './extend/title'
 
 const base = () => {
   return {
@@ -54,5 +60,11 @@ export {
   tFilter,
   tSelect,
   tSwitch,
-  tTabs
+  tTabs,
+  tGrid,
+  tCarousel,
+  tNotice,
+  tCard,
+  tRow,
+  tTitle
 }

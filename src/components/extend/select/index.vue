@@ -26,7 +26,9 @@
   </t-popup>
 </template>
 <script>
-import {tPopup, tHeader} from '../../'
+import tPopup from '../../base/popup'
+import tHeader from '../../base/header'
+
 export default {
   components: {
     tPopup,

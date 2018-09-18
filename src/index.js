@@ -7,7 +7,7 @@ import base from '@c'
 import '@j/App'
 import '@s'
 
-window.location = '/#/'
+// window.location = '/turboUI/#/'
 
 let script = document.createElement('script')
 script.type = 'text/javascript'

@@ -22,6 +22,16 @@
         <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_tabSelect')">tabs</t-flex>
         <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_filter')">filter</t-flex>
       </t-flex>
+      <t-flex align="stretch" class="box">
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('grid_grid')">grid</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('grid_carousel')">carousel</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('grid_notice')">notice</t-flex>
+      </t-flex>
+      <t-flex align="stretch" class="box">
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('grid_card')">card</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('grid_row')">row</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('grid_all')">子栏位演示</t-flex>
+      </t-flex>
     </div>
   </t-page>
 </template>

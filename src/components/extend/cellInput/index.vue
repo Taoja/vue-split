@@ -8,7 +8,8 @@
   </t-cell>
 </template>
 <script>
-import {tInput, tCell} from '../../'
+import tInput from '../../base/input'
+import tCell from '../../base/cell'
 export default {
   components: {
     tInput,
