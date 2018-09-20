@@ -1,3 +1,3 @@
 module.exports = {
-  entry: 'base_home'
+  entry: '/base/home'
 }

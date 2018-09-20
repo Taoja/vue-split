@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-import VueRouter from 'vue-router'
+// import VueRouter from 'vue-router'
+import tRouter from '../config/tRouter'
 import routes from './router'
 import store from './store'
 import base from '@c'
@@ -9,25 +10,34 @@ import '@s'
 
 // window.location = '/turboUI/#/'
 
-let script = document.createElement('script')
-script.type = 'text/javascript'
-script.onload = () => {
-  store.state.loadedPages.push(routes[0].redirect.split('/')[1])
-  Vue.use(VueRouter)
-  Vue.use(base)
-  const router=new VueRouter({
-    routes
-  })
+// let script = document.createElement('script')
+// script.type = 'text/javascript'
+// script.onload = () => {
+//   store.state.loadedPages.push(routes[0].redirect.split('/')[1])
+//   Vue.use(VueRouter)
+//   Vue.use(base)
+//   const router=new VueRouter({
+//     routes
+//   })
 
-  window._vm = new Vue({
-    el: '#entry',
-    router,
-    template: '<App />',
-    store,
-    components: {App}
-  })
-  document.body.removeChild(script)
-}
+//   window._vm = new Vue({
+//     el: '#entry',
+//     router,
+//     template: '<App />',
+//     store,
+//     components: {App}
+//   })
+//   document.body.removeChild(script)
+// }
 
-script.src = 'js' + routes[0].redirect + '.js'
-document.body.appendChild(script)
+// script.src = 'js' + routes[0].redirect + '.js'
+// document.body.appendChild(script)
+Vue.use(base)
+Vue.use(tRouter, routes)
+window._vm = new Vue({
+  el: '#entry',
+  // router,
+  template: '<App />',
+  store,
+  components: {App}
+})

@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <transition
-    :enter-active-class="goback ? 'faster animated staticInLeft' : 'faster animated slideInRight2'"
-    :leave-active-class="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'">
-      <router-view></router-view>
-    </transition>
+    <t-router
+    :enter="goback ? 'faster animated staticInLeft' : 'faster animated slideInRight2'"
+    :leave="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'"></t-router>
   </div>
 </template>
 <script>
@@ -15,12 +13,12 @@ export default {
     ...mapState(['goback', '__pageStack', 'loadedPages']),
   },
   mounted() {
-    routerLoader.call(this)
-    this.$router.beforeEach((to, from, next) => {
-      this.addStack({to: to.path, from: from.path}) //压栈
-      next()
-    })
-    this.resetRouterGo()
+    // routerLoader.call(this)
+    // this.$router.beforeEach((to, from, next) => {
+    //   this.addStack({to: to.path, from: from.path}) //压栈
+    //   next()
+    // })
+    // this.resetRouterGo()
   },
   methods: {
     ...mapMutations(['addStack', 'addLoaded']),
@@ -53,7 +51,7 @@ body{
   height: 100%;
   background-color: #f6f6f6;
 }
-#app>.main{
+#app .main{
   background-color: #f6f6f6;
   position: absolute;
 }

@@ -3,34 +3,34 @@
     <t-header slot="top">演示</t-header>
     <div>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_flex')">Flex</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_header')">Header</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_cell')">Group&Cell</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/demo/flex')">Flex</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/demo/header')">Header</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/demo/cell')">Group&Cell</t-flex>
       </t-flex>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_actionSheet')">actionSheet</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_toast')">toast</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_dialog')">dialog</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/demo/actionSheet')">actionSheet</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/demo/toast')">toast</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/demo/dialog')">dialog</t-flex>
       </t-flex>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_input')">input</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_cellInput')">cellInput</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_button')">button</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/demo/input')">input</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/demo/cellInput')">cellInput</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/demo/button')">button</t-flex>
       </t-flex>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_switch')">switch</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('demo_tabSelect')">tabs</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('demo_filter')">filter</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/demo/switch')">switch</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/demo/tabSelect')">tabs</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/demo/filter')">filter</t-flex>
       </t-flex>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('grid_grid')">grid</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('grid_carousel')">carousel</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('grid_notice')">notice</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/grid/grid')">grid</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/grid/carousel')">carousel</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/grid/notice')">notice</t-flex>
       </t-flex>
       <t-flex align="stretch" class="box">
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('grid_card')">card</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('grid_row')">row</t-flex>
-        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('grid_all')">子栏位演示</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/grid/card')">card</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/grid/row')">row</t-flex>
+        <t-flex flex="1" justify="center" align="center" class="a2" @click="go('/grid/all')">子栏位演示</t-flex>
       </t-flex>
     </div>
   </t-page>
@@ -39,7 +39,7 @@
 export default {
   methods: {
     go (e) {
-      this.$router.push(e)
+      this.$router.go(e)
     }
   }
 }

@@ -8,7 +8,7 @@ module.exports = function() {
   options.pages.forEach((a) => {
     importLine = importLine + `var t${a.name} = () => import('${a.page}');`
     exportLine = exportLine + `{
-      path: '/${a.page}',
+      path: '/${a.dir}/${a.name}',
       name: '${a.page}',
       component: t${a.name}
     },`
@@ -16,7 +16,7 @@ module.exports = function() {
   exportLine = `const routers = [
     {
       path: '/',
-      redirect: '/${entry.entry}'
+      redirect: '${entry.entry}'
     },
     ${exportLine}
   ]
