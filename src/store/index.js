@@ -7,7 +7,6 @@ const store = new Vuex.Store({
   state: {
     __pageStack: [],
     goback: false,
-    loadedPages: [],
   },
   mutations: {
     addStack (state, path) {
@@ -22,9 +21,7 @@ const store = new Vuex.Store({
       } else {
         state.__pageStack.push(toPath) //压栈
       }
-    },
-    addLoaded (state, name) {
-      state.loadedPages.push(name)
+      console.log(state.__pageStack)
     }
   },
   modules: {
@@ -32,4 +29,4 @@ const store = new Vuex.Store({
   }
 })
 
-export default store
+window.stores = store

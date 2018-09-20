@@ -39,7 +39,7 @@
 export default {
   methods: {
     go (e) {
-      this.$router.go(e)
+      this.$router.push(e)
     }
   }
 }

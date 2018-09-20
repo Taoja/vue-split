@@ -58,9 +58,12 @@ const tRouter = {
             })
           }
         },
-        hashChange () {
-          var hash = window.location.hash.split('#')[1]
-          this.go(hash)
+        hashChange (e) {
+          var from = e.oldURL.split('#')[1]
+          var to = e.newURL.split('#')[1]
+          this.$router._beforeEach(to, from, () => {
+            this.go(to)
+          })
         }
       },
       mounted() {
@@ -71,9 +74,18 @@ const tRouter = {
       },
     })
     vue.prototype.$router = {
-        go (e) {
-          window.location = `#${e}`
-        }
+      _beforeEach: (to, from, next) => {
+        next()
+      },
+      go (e) {
+        history.back(e)
+      },
+      push (e) {
+        window.location = `#${e}`
+      },
+      beforeEach (callback) {
+        this._beforeEach = callback
+      }
     }
   }
 }

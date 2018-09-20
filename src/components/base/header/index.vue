@@ -36,7 +36,7 @@ export default {
       if (this.$listeners.leftClick) {
         this.$emit('leftClick', e)
       } else {
-        this.$router.go(-1).catch(() => {console.log('nativeBack')})
+        this.$router.go(-1)
       }
     },
     rightClick (e) {

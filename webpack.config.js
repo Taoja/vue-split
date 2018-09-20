@@ -10,6 +10,8 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
+console.log(packageList(), importList())
+
 const config = {
   /**
    * 热更新调试配置
@@ -56,7 +58,7 @@ const config = {
    * tips：+提速 o一般 -缓慢
    * ---------------------------------------------------------------------------------------
    */
-  devtool: isDev ? 'eval' : 'source-map',
+  devtool: isDev ? 'eval' : false,
   /**
    * 入口文件
    */

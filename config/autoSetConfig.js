@@ -21,7 +21,7 @@ module.exports = function() {
     ${exportLine}
   ]
   
-  export default routers
+  window.routes = routers
   `
   return importLine + exportLine
 }

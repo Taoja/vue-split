@@ -7,21 +7,19 @@
 </template>
 <script>
 import { mapState, mapMutations } from 'vuex'
-import { routerLoader } from '@j/routerStack'
 export default {
   computed: {
-    ...mapState(['goback', '__pageStack', 'loadedPages']),
+    ...mapState(['goback', '__pageStack']),
   },
   mounted() {
-    // routerLoader.call(this)
-    // this.$router.beforeEach((to, from, next) => {
-    //   this.addStack({to: to.path, from: from.path}) //压栈
-    //   next()
-    // })
-    // this.resetRouterGo()
+    this.$router.beforeEach((to, from, next) => {
+      this.addStack({to: to, from: from}) //压栈
+      next()
+    })
+    this.resetRouterGo()
   },
   methods: {
-    ...mapMutations(['addStack', 'addLoaded']),
+    ...mapMutations(['addStack']),
     resetRouterGo () {
       this.$router.go = (index = -1) => {
         return new Promise((resolve, reject) => {
@@ -31,7 +29,7 @@ export default {
             resolve(path)
             this.$router.push(path) //跳转至去向页面
           } else {
-            reject && reject()
+            reject()
           }
         })
       }
