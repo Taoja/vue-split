@@ -15,15 +15,17 @@ if (argList.length <= 0) {
   entryList = argList
 }
 
+var entryPages = pages.filter((a) => {
+  return entryList.includes(a.dir)
+})
+
 var packageList = function () {
   var base = {
     main:  path.resolve(__dirname, '../src/index.js')
   }
   var package = {}
-  pages.forEach(function (a) {
-    if (entryList.includes(a.dir)) {
-      package[a.page] =  path.resolve(__dirname, '../src/modules/' + a.dir + '/index.js')
-    }
+  entryPages.forEach(function (a) {
+    package[a.page] =  path.resolve(__dirname, '../src/modules/' + a.dir + '/index.js')
   })
   if (entryList.includes('entry') || isDev || (argList.length <= 0 && !isDev)) {
     package.main = base.main
@@ -63,5 +65,6 @@ function copyStatic () {
 module.exports = {
   packageList,
   importList,
-  copyStatic
+  copyStatic,
+  entryPages
 }

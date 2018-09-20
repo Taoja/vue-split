@@ -10,8 +10,6 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-console.log(packageList(), importList())
-
 const config = {
   /**
    * 热更新调试配置

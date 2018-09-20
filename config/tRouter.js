@@ -1,11 +1,15 @@
 const tRouter = {
   install (vue, options) {
     var loadPage = (path, name) => {
-      return new Promise((a) => {
+      return new Promise((a, b) => {
         var script = document.createElement('script')
         script.type = 'text/javascript'
         script.onload = () => {
           a()
+          document.body.removeChild(script)
+        }
+        script.onerror = (err) => {
+          b(err)
           document.body.removeChild(script)
         }
         script.src = `js/${name}.js`
@@ -55,6 +59,8 @@ const tRouter = {
             loadPage(item.path, item.name).then(() => {
               this.loadedPageList.push(e)
               this.nowPage = e
+            }).catch(() => {
+              history.back()
             })
           }
         },

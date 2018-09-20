@@ -1,6 +1,6 @@
 <template>
   <t-page ref="page">
-    <t-header slot="top">演示</t-header>
+    <t-header slot="top"><div @click="goTest">演示</div></t-header>
     <div>
       <t-flex align="stretch" class="box">
         <t-flex flex="1" justify="center" align="center" class="a1" @click="go('/demo/flex')">Flex</t-flex>
@@ -40,6 +40,9 @@ export default {
   methods: {
     go (e) {
       this.$router.push(e)
+    },
+    goTest () {
+      this.$router.push('/test/test')
     }
   }
 }
