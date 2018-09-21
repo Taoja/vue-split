@@ -32,7 +32,7 @@ var packageList = function () {
   }
   package.stores = path.resolve(__dirname, '../src/store/index.js')
   package.routes = path.resolve(__dirname, '../src/router/index.js')
-  if (argList.includes('components') || isDev) {
+  if (argList.includes('components') || isDev || (argList.length <= 0 && !isDev)) {
     package.components = path.resolve(__dirname, '../src/components/index.js')
   }
   if (isDev) {
