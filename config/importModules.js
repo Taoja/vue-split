@@ -1,5 +1,4 @@
 module.exports = function() {
-  const app = require(this.resourcePath).app
   var list = this.context.split('/')
   const page = list.pop()
   const dir = list.pop()
