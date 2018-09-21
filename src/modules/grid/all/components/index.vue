@@ -37,7 +37,7 @@
   </div>
 </template>
 <script>
-import {tCard, tCarousel, tGrid, tNotice, tRow, tTitle} from '@c'
+import {tCard, tCarousel, tGrid, tNotice, tRow, tTitle} from 'components'
 export default {
   components: {
     tCard,

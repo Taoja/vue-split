@@ -32,7 +32,7 @@
   </t-page>
 </template>
 <script>
-import {tCellInput} from '@c'
+import {tCellInput} from 'components'
 export default {
   data () {
     return {

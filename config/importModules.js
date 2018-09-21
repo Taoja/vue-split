@@ -1,14 +1,15 @@
 module.exports = function() {
-  const list = require(this.resourcePath)
-  const dir = this.context.split('/').pop()
-  let source = 'const __pages = {'
-  list.forEach((a) => {
-    source = source + `${dir}_${a}: require('./${a}'),`
-  })
-  source = source + `}
+  const app = require(this.resourcePath).app
+  var list = this.context.split('/')
+  const page = list.pop()
+  const dir = list.pop()
+  let source = `
+  const page = require('./index.vue');
   top.__pages = {
-    ...__pages,
-    ...top.__pages
+    ...top.__pages,
+    ...{
+      ${dir}_${page}: page
+    }
   }`
   return source
 }

@@ -16,7 +16,7 @@
   </t-page>
 </template>
 <script>
-import {tSwitch} from '@c'
+import {tSwitch} from 'components'
 export default {
   components: {
     tSwitch

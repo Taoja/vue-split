@@ -44,7 +44,7 @@
   </t-page>
 </template>
 <script>
-import {tTabs} from '@c'
+import {tTabs} from 'components'
 export default {
   data () {
     return {

@@ -44,7 +44,7 @@
   </t-page>
 </template>
 <script>
-import { tFilter } from '@c'
+import { tFilter } from 'components'
 export default {
   components: {
     tFilter

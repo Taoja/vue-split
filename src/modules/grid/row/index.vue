@@ -12,7 +12,7 @@
   </t-page>
 </template>
 <script>
-import {tRow} from '@c'
+import {tRow} from 'components'
 export default {
   data () {
     return {

@@ -21,7 +21,7 @@ module.exports = function() {
     ${exportLine}
   ]
   
-  window.routes = routers
+  window.__routes = routers
   `
   return importLine + exportLine
 }

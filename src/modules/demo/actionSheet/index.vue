@@ -26,7 +26,7 @@
   </t-page>
 </template>
 <script>
-import { tActionSheet , tSelect} from '@c'
+import { tActionSheet , tSelect} from 'components'
 export default {
   components: {
     tActionSheet,

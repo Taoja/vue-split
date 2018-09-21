@@ -40,7 +40,7 @@
   </t-page>
 </template>
 <script>
-import {tCarousel} from '@c'
+import {tCarousel} from 'components'
 export default {
   data () {
     return {

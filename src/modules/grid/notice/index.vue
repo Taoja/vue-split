@@ -57,7 +57,7 @@
   </t-page>
 </template>
 <script>
-import {tNotice} from '@c'
+import {tNotice} from 'components'
 export default {
   data () {
     return {

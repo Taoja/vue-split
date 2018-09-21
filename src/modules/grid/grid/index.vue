@@ -21,7 +21,7 @@
   </t-page>
 </template>
 <script>
-import {tGrid} from '@c'
+import {tGrid} from 'components'
 export default {
   data () {
     return {

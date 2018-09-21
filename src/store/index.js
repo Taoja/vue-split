@@ -29,4 +29,4 @@ const store = new Vuex.Store({
   }
 })
 
-window.stores = store
+window.__stores = store

@@ -25,13 +25,16 @@ var packageList = function () {
   }
   var package = {}
   entryPages.forEach(function (a) {
-    package[a.page] =  path.resolve(__dirname, '../src/modules/' + a.dir + '/index.js')
+    package[a.page] =  path.resolve(__dirname, `../src/modules/${a.dir}/${a.name}/index.js`)
   })
   if (entryList.includes('entry') || isDev || (argList.length <= 0 && !isDev)) {
     package.main = base.main
   }
   package.stores = path.resolve(__dirname, '../src/store/index.js')
   package.routes = path.resolve(__dirname, '../src/router/index.js')
+  if (argList.includes('components') || isDev) {
+    package.components = path.resolve(__dirname, '../src/components/index.js')
+  }
   if (isDev) {
     return package
   } else {
@@ -44,8 +47,9 @@ var importList = function () {
   pages.forEach(function (a) {
     package[a.page] = 'window.__pages.' + a.page
   })
-  package.stores = 'window.stores'
-  package.routes = 'window.routes'
+  package.components = 'window.__components'
+  package.stores = 'window.__stores'
+  package.routes = 'window.__routes'
   return package
 }
 

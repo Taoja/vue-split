@@ -25,25 +25,25 @@ import tCard from './extend/card'
 import tRow from './extend/row'
 import tTitle from './extend/title'
 
-const base = () => {
-  return {
-    install (Vue){
-      Vue.component('tPage', tPage)
-      Vue.component('tHeader', tHeader)
-      Vue.component('tFlex', tFlex)
-      Vue.component('tGroup', tGroup)
-      Vue.component('tCell', tCell)
-      Vue.component('sLogo', sLogo)
-      Vue.component('tPopup', tPopup)
-      Vue.component('tInput', tInput)
-      Vue.component('tButton', tButton)
-    }
-  }
-}
+// const base = () => {
+//   return {
+//     install (Vue){
+//       Vue.component('tPage', tPage)
+//       Vue.component('tHeader', tHeader)
+//       Vue.component('tFlex', tFlex)
+//       Vue.component('tGroup', tGroup)
+//       Vue.component('tCell', tCell)
+//       Vue.component('sLogo', sLogo)
+//       Vue.component('tPopup', tPopup)
+//       Vue.component('tInput', tInput)
+//       Vue.component('tButton', tButton)
+//     }
+//   }
+// }
 
-export default base()
+// export default base()
 
-export {
+const components = {
   tButton,
   tCell,
   tDialog,
@@ -68,3 +68,7 @@ export {
   tRow,
   tTitle
 }
+
+window.__components = components
+
+export default components

@@ -20,7 +20,7 @@
   </t-page>
 </template>
 <script>
-import {tCard} from '@c'
+import {tCard} from 'components'
 export default {
   data () {
     return {
