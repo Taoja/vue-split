@@ -64,6 +64,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
+  background-color: inherit;
   >.page{
     flex: 1 0 1px;
     display: flex;
@@ -78,7 +79,7 @@ export default {
     }
     >.middle{
       flex: 1 0 1px;
-      overflow: hidden;
+      overflow: auto;
     }
     >.bottom{
       flex: 0 1 auto;

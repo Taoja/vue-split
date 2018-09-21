@@ -11,19 +11,17 @@ files.forEach(function (item) {
 
 var pages = []
 modules.forEach(function (a) {
-  const dir = fs.readdirSync( path.resolve(__dirname, '../src/modules/' + a))
-  dir.forEach(function (item) {
-    let stat = fs.lstatSync( path.resolve(__dirname, "../src/modules/" + a + '/' + item))
-    if (stat.isDirectory() === true) { 
-      pages.push({
-        dir: a,
-        page: item
-      })
-    }
+  var pageList = require(path.resolve(__dirname, '../src/modules/' + a))
+  pageList.forEach((item) => {
+    pages.push({
+      dir: a,
+      page: `${a}_${item}`,
+      name: item
+    })
   })
 })
 
 module.exports = {
   modules,
-  pages
+  pages,
 }

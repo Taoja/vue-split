@@ -1,0 +1,46 @@
+/*
+ *   MINIMIZE RESET STYLES
+ *    @Author Liuls  
+ *
+ */
+
+
+
+//字体
+$font-family-special:'Helvetica Neue'; //英文、数字、特殊符号使用
+
+//主要色彩
+$color-cm: #cc162c;
+$color-cc: #671010;
+$color-cb: #aa282a;
+$color-cp: #fff4f2;
+
+//文字色值
+$font-color-t1: #333;  
+$font-color-t2: #666;
+$font-color-t3: #999;
+$font-color-t4: #ccc;
+$font-color-t5: #fff;
+
+//背景和分割线
+$line-color: #ddd; //分割线
+$global-bg: #f0f0f0; //全局背景色
+
+//字体排版
+$font-h1: .36rem; //用于导航标题，全局按钮
+$font-h2: .32rem; //用于列表标题
+$font-h3: .28rem; //用于导航两侧文字按钮、文本标题、正文
+$font-h4: .24rem; //用于副标题、段落正文、正文、二级banner、tabbar切换文字、表单小题/副标题
+$font-h5: .22rem; //用于副标题、辅助性或提示文字、小按钮文字
+$font-h6: .20rem; //用于副标题、辅助性或提示文字
+$font-h7: .18rem; //用于特殊情况 最小字号
+// 18 - 22px用于标签文案
+
+//以上为整理过的最新规范
+$header-height: .88rem;
+$bottom-height: .98rem;
+$safe-margin: .3rem;
+$extend-tab-height: .8rem;
+$cell-margin: .2rem;
+//group相关
+$group-padding: .4rem 0px .2rem .3rem;

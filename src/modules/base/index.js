@@ -1,3 +1,1 @@
-import black from './black/index.vue'
-
-window.black = black
+module.exports = ['home']

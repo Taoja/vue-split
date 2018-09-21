@@ -6,7 +6,9 @@
       </slot>
     </div>
     <div class="middle">
-      <slot></slot>
+      <slot>
+        <div>{{title}}</div>
+      </slot>
     </div>
     <div class="right">
       <slot name="right">
@@ -16,7 +18,6 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
 export default {
   props: {
     leftOptions: {
@@ -27,15 +28,15 @@ export default {
         }]
       }
     },
-    rightOptions: Array
+    rightOptions: Array,
+    title: String
   },
   methods: {
-    ...mapMutations(['back']),
     leftClick (e) {
       if (this.$listeners.leftClick) {
         this.$emit('leftClick', e)
       } else {
-        this.$router.go(-1).catch(() => {console.log('nativeBack')})
+        this.$router.go(-1)
       }
     },
     rightClick (e) {
@@ -55,7 +56,8 @@ export default {
   align-items: center;
   background-color: white;
   color: #222;
-  font-size: 0.3rem;
+  font-size: 0.34rem;
+  z-index: 1;
   @include headShadow;
   >*{
     height: 100%;
@@ -75,7 +77,9 @@ export default {
   }
   >.middle{
     text-align: center;
-    line-height: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

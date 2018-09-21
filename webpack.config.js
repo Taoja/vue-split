@@ -3,6 +3,7 @@ const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const {packageList, importList, copyStatic} = require('./config/splitConf')
+const {pages} = require('./config/fsList')
 const webpack = require('webpack')
 const isDev = process.env.NODE_ENV === 'development'
 function resolve(dir) {
@@ -14,7 +15,7 @@ const config = {
    * 热更新调试配置
    */
   devServer: isDev ? {
-    host: 'localhost',    // 服务器的IP地址，可以使用IP也可以使用localhost
+    host: '0.0.0.0',    // 服务器的IP地址，可以使用IP也可以使用localhost
     compress: true,    // 服务端压缩是否开启
     port: 8081, // 端口
     historyApiFallback: false, //对应router里的history模式
@@ -55,7 +56,7 @@ const config = {
    * tips：+提速 o一般 -缓慢
    * ---------------------------------------------------------------------------------------
    */
-  devtool: isDev ? 'eval' : 'source-map',
+  devtool: isDev ? 'eval' : false,
   /**
    * 入口文件
    */
@@ -85,6 +86,7 @@ const config = {
     'Vuex': 'window.Vuex',
     'vuex': 'window.Vuex',
     'vue-router': 'window.VueRouter',
+    'pageList': JSON.stringify(pages),
     ...importList()
   },
   /**
@@ -145,6 +147,21 @@ const config = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: path.resolve(__dirname, 'src/router/index.js'),
+        use: {
+          loader: './config/autoSetConfig.js',
+          options: {
+            pages
+          }
+        } 
+      },
+      {
+        test: /src\/modules\/[_a-zA-Z0-9]+\/[_a-zA-Z0-9]+\/index.js/,
+        use: {
+          loader: './config/importModules.js',
+        } 
       }
     ]
   }

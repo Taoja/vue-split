@@ -1,0 +1,37 @@
+<template>
+  <div class="group">
+    <div class="title">{{title}}</div>
+    <slot></slot>
+  </div>
+</template>
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      default: ''
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+@import '@s/vars.scss';
+@import '@s/mixin.scss';
+.title{
+  color: $font-color-t3;
+  font-size: $font-h3;
+  padding: $group-padding;
+}
+.group{
+  .cellBody:last-child::after{
+    background-color: transparent;
+  }
+}
+</style>
+<style>
+.group .cell:last-child .cellBody::after{
+    background-color: transparent;
+}
+</style>
+
+
