@@ -5,7 +5,7 @@
   </t-page>
 </template>
 <script>
-import tAll from './components'
+import tAll from '@c/extend/grid'
 export default {
   components: {
     tAll
