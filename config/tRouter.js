@@ -56,6 +56,12 @@ const tRouter = {
             var item = this.pages.find((a) => {
               return a.path === e
             })
+            if (!item) {
+              let cantfind = new Error('can not find this page in stack!')
+              console.error(cantfind)
+              history.back()
+              return
+            }
             loadPage(item.path, item.name).then(() => {
               this.loadedPageList.push(e)
               this.nowPage = e
