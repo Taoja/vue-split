@@ -44,5 +44,7 @@
     "webpack-dev-server": "^3.1.7",
     "yargs": "^12.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "team-ui": "^1.0.3"
+  }
 }
