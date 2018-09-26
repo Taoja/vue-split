@@ -20,7 +20,8 @@ const tRouter = {
       data () {
         return {
           nowPage: '',
-          loadedPageList: []
+          loadedPageList: [],
+          theComponent: ''
         }
       },
       props: {
@@ -38,12 +39,17 @@ const tRouter = {
           })
         }
       },
+      watch: {
+        comp () {
+          this.theComponent = window.__pages[this.comp.name].default
+        }
+      },
       template: `
         <div class="T_router">
           <transition
           :enter-active-class="enter"
           :leave-active-class="leave">
-            <component v-if="nowPage === item.path" v-for="(item, index) in pages" :key="index" :is="comp.component">
+            <component v-if="nowPage === item.path" v-for="(item, index) in pages" :key="index" :is="theComponent">
             </component>
           </transition>
         </div>
