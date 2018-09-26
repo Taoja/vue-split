@@ -4,8 +4,8 @@ module.exports = function() {
   const dir = list.pop()
   let source = `
   const page = require('./index.vue');
-  top.__pages = {
-    ...top.__pages,
+  window.__pages = {
+    ...window.__pages,
     ...{
       ${dir}_${page}: page
     }
