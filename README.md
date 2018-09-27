@@ -1,27 +1,30 @@
 # vue-split
+
 单页面分包
 
 # 全局依赖
+
 - webpack^4.20.0
 - webpack-cli^3.1.1
 - webpack-dev-server^3.1.9
 
 # 目录结构
+
 ```c
 |-- /
     |-- .babelrc
     |-- .gitignore
-    |-- README.md   
+    |-- README.md
     |-- index.html //html入口
     |-- package.json  //依赖表
-    |-- webpack.config.js //项目配置文件
+    |-- webpack.config.js //项目配置文件
     |-- config //扩展功能 !重要 分包及自动配置文件
     |   |-- autoSetConfig.js
     |   |-- fsList.js
     |   |-- importModules.js
     |   |-- splitConf.js
     |   |-- tRouter.js
-    |-- dist //build输出目录
+    |-- dist //build输出目录
     |-- src //业务逻辑目录
     |   |-- App.vue //项目入口页面，包含页面跳转、页面栈重构代码
     |   |-- index.js //项目入口js，引入依赖
@@ -65,6 +68,7 @@
 ```
 
 # 命令对应的目录
+
 ```
 entry => ./static + ./index.html + ./src/App.vue + ./src/index.js + ./src/store/ + ./src/router
 
@@ -73,45 +77,63 @@ components => ./src/components/index.js
 !entry&&!components => ./src/components/modules/*/
 ```
 
-# 使用方式
+# 使用方式
+
 ## 本地调试
+
 - 调试全部
+
 ```
 $ npm run dev
 output: entry + components + modules/*
 ```
+
 - 调试单独模块
+
 ```
 $ npm run dev -m base
 output: entry + components + modules/base/
 ```
+
 - 调试多个模块
+
 ```
 $ npm run dev -m base/demo/test
 output: entry + components + modules/base/ + modules/demo/ + modules/test/
 ```
+
 ## 本地构建
+
 - 构建全部
+
 ```
 $ npm run build
 output: entry + components + modules/*
 ```
+
 - 构建入口
+
 ```
 $ npm run build -m entry
 output: entry
 ```
-- 构建分包组件
+
+- 构建分包组件
+
 ```
 $ npm run build -m components
 output: components
 ```
+
 - 构建单独模块
+
 ```
 $ npm run build -m base
 output: modules/base/
 ```
+
 - 构建多个模块
+
 ```
 $ npm run build -m base/demo/test
 output: modules/base/ + modules/demo/ + modules/test/
