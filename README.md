@@ -24,7 +24,7 @@
     |   |-- importModules.js
     |   |-- splitConf.js
     |   |-- tRouter.js
-    |-- dist //build输出目录
+    |-- dist //build输出目录
     |-- src //业务逻辑目录
     |   |-- App.vue //项目入口页面，包含页面跳转、页面栈重构代码
     |   |-- index.js //项目入口js，引入依赖
@@ -78,6 +78,12 @@ components => ./src/components/index.js
 ```
 
 # 使用方式
+
+## 安装依赖
+
+```
+$ npm run install
+```
 
 ## 本地调试
 
