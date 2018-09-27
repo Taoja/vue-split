@@ -158,7 +158,7 @@ const config = {
         } 
       },
       {
-        test: /src\/modules\/[_a-zA-Z0-9]+\/[_a-zA-Z0-9]+\/index.js/,
+        test: /src[\/|\\]modules[\/|\\][_a-zA-Z0-9]+[\/|\\][_a-zA-Z0-9]+[\/|\\]index.js/,
         use: {
           loader: './config/importModules.js',
         } 

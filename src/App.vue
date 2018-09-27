@@ -49,7 +49,7 @@ body{
   height: 100%;
   background-color: #f6f6f6;
 }
-#app .main{
+#app .T_page{
   background-color: #f6f6f6;
   position: absolute;
 }

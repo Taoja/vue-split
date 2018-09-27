@@ -6,11 +6,11 @@ module.exports = function() {
   let exportLine = ''
   const entry = require(this.resourcePath)
   options.pages.forEach((a) => {
-    importLine = importLine + `var t_${a.page} = () => import('${a.page}');`
+    // importLine = importLine + `var t_${a.page} = () => import('${a.page}');`
     exportLine = exportLine + `{
       path: '/${a.dir}/${a.name}',
       name: '${a.page}',
-      component: t_${a.page}
+      // component: window.__pages.${a.page}
     },`
   })
   exportLine = `const routers = [

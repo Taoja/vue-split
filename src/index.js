@@ -26,7 +26,7 @@ Vue.component('sLogo', sLogo)
 Vue.component('tPopup', tPopup)
 Vue.component('tInput', tInput)
 Vue.component('tButton', tButton)
-
+console.log(routes)
 Vue.use(tRouter, routes)
 window._vm = new Vue({
   el: '#entry',
