@@ -12,7 +12,7 @@
     |-- .babelrc
     |-- .gitignore
     |-- README.md   
-    |-- index.html  //html入口
+    |-- index.html //html入口
     |-- package.json  //依赖表
     |-- webpack.config.js //项目配置文件
     |-- config //扩展功能 !重要 分包及自动配置文件
@@ -62,4 +62,57 @@
         |-- iconfont.woff
         |-- vue.min.js // 单页面推荐使用静态文件方式引入，否则每个页面都会打包一份vue进代码中
         |-- vuex.min.js // 单页面推荐使用静态文件方式引入，否则每个页面都会打包一份vuex进代码中
+```
+
+# 命令对应的目录
+```
+entry => ./static + ./index.html + ./src/App.vue + ./src/index.js + ./src/store/ + ./src/router
+
+components => ./src/components/index.js
+
+!entry&&!components => ./src/components/modules/*/
+```
+
+# 使用方式
+## 本地调试
+- 调试全部
+```
+$ npm run dev
+output: entry + components + modules/*
+```
+- 调试单独模块
+```
+$ npm run dev -m base
+output: entry + components + modules/base/
+```
+- 调试多个模块
+```
+$ npm run dev -m base/demo/test
+output: entry + components + modules/base/ + modules/demo/ + modules/test/
+```
+## 本地构建
+- 构建全部
+```
+$ npm run build
+output: entry + components + modules/*
+```
+- 构建入口
+```
+$ npm run build -m entry
+output: entry
+```
+- 构建分包组件
+```
+$ npm run build -m components
+output: components
+```
+- 构建单独模块
+```
+$ npm run build -m base
+output: modules/base/
+```
+- 构建多个模块
+```
+$ npm run build -m base/demo/test
+output: modules/base/ + modules/demo/ + modules/test/
 ```
