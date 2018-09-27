@@ -144,6 +144,3 @@ output: modules/base/
 $ npm run build -m base/demo/test
 output: modules/base/ + modules/demo/ + modules/test/
 ```
-
-# 构建示例
-![demo](./example/demo.gif)
