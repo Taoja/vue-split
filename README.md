@@ -73,46 +73,46 @@ components => ./src/components/index.js
 !entry&&!components => ./src/components/modules/*/
 ```
 
-# 使用方式
-## 本地调试
-- 调试全部
+# 使用方式
+## 本地调试
+- 调试全部
 ```
 $ npm run dev
-output: entry + components + modules/*
+output: entry + components + modules/*
 ```
-- 调试单独模块
+- 调试单独模块
 ```
 $ npm run dev -m base
-output: entry + components + modules/base/
+output: entry + components + modules/base/
 ```
-- 调试多个模块
+- 调试多个模块
 ```
 $ npm run dev -m base/demo/test
-output: entry + components + modules/base/ + modules/demo/ + modules/test/
+output: entry + components + modules/base/ + modules/demo/ + modules/test/
 ```
-## 本地构建
-- 构建全部
+## 本地构建
+- 构建全部
 ```
 $ npm run build
-output: entry + components + modules/*
+output: entry + components + modules/*
 ```
-- 构建入口
+- 构建入口
 ```
 $ npm run build -m entry
-output: entry
+output: entry
 ```
-- 构建分包组件
+- 构建分包组件
 ```
 $ npm run build -m components
-output: components
+output: components
 ```
-- 构建单独模块
+- 构建单独模块
 ```
 $ npm run build -m base
-output: modules/base/
+output: modules/base/
 ```
-- 构建多个模块
+- 构建多个模块
 ```
 $ npm run build -m base/demo/test
-output: modules/base/ + modules/demo/ + modules/test/
+output: modules/base/ + modules/demo/ + modules/test/
 ```
