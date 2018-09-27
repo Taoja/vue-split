@@ -146,4 +146,4 @@ output: modules/base/ + modules/demo/ + modules/test/
 ```
 
 # 构建示例
-![demo]('./example/demo.gif')
+![demo](./example/demo.gif)
