@@ -1,10 +1,9 @@
-// wenbpack.config.js
 const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const {packageList, importList, copyStatic} = require('./config/splitConf')
 const {pages} = require('./config/fsList')
 const webpack = require('webpack')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development'
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -18,21 +17,15 @@ const config = {
     host: '0.0.0.0',    // 服务器的IP地址，可以使用IP也可以使用localhost
     compress: true,    // 服务端压缩是否开启
     port: 8081, // 端口
-    historyApiFallback: false, //对应router里的history模式
     hot: true, //热替换
-    open: false, //是否开启新窗口
-    lazy: false, //惰性加载
-    filename: "bundle.js", //惰性加载，只有调用时才编译bundle.js
-    noInfo: true, //清除各种控制台console.log
+    open: true, //是否开启新窗口
+    noInfo: false, //清除各种控制台console.log
     overlay: { //页面弹出错误信息
       warnings: false,
       errors: true
     },
-    // proxy: { //请求到 /api/users 现在会被代理到请求 http://localhost:3000/api/users
-    //   "/api": "http://localhost:3000"
-    // },
     progress: true, //输出进度到控制台
-    quiet: true, //清空控制台错误信息
+    quiet: true
   } : {},
   /**
    * sourceMap配置
@@ -71,11 +64,8 @@ const config = {
   /**
    * 插件
    */
-  plugins: [        
-    // new HtmlWebpackPlugin({ //入口配置
-    //   filename: 'index.html',// 生成文件名
-    //   template: 'index.html', // 模板文件
-    // }),                        
+  plugins: [             
+    new FriendlyErrorsWebpackPlugin(),            
     new webpack.HotModuleReplacementPlugin(), //热更新
     new VueLoaderPlugin(), //vue加载器
     ...copyStatic()
@@ -95,7 +85,6 @@ const config = {
   resolve: {
     extensions: ['.js', '.vue', '.json', '.scss'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       '@s': resolve('src/common/scss'),
       '@j': resolve('src/common/js'),
