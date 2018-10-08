@@ -1,7 +1,6 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const {packageList, importList, copyStatic} = require('./config/splitConf')
-const {pages} = require('./config/fsList')
+const {packageList, copyStatic, entryPages, importList} = require('vue-splitter')
 const webpack = require('webpack')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development'
@@ -18,7 +17,7 @@ const config = {
     compress: true,    // 服务端压缩是否开启
     port: 8081, // 端口
     hot: true, //热替换
-    open: true, //是否开启新窗口
+    open: false, //是否开启新窗口
     noInfo: false, //清除各种控制台console.log
     overlay: { //页面弹出错误信息
       warnings: false,
@@ -58,7 +57,7 @@ const config = {
    * 输出配置
    */
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: resolve('dist'),
     filename: 'js/[name].js'
   },
   /**
@@ -76,8 +75,7 @@ const config = {
     'Vuex': 'window.Vuex',
     'vuex': 'window.Vuex',
     'vue-router': 'window.VueRouter',
-    'pageList': JSON.stringify(pages),
-    ...importList()
+    ...importList
   },
   /**
    * 解析
@@ -138,18 +136,18 @@ const config = {
         }
       },
       {
-        test: path.resolve(__dirname, 'src/router/index.js'),
+        test: resolve('src/router/index.js'),
         use: {
-          loader: './config/autoSetConfig.js',
+          loader: 'vue-splitter/loader/routesLoader',
           options: {
-            pages
+            entryPages
           }
         } 
       },
       {
         test: /src[\/|\\]modules[\/|\\][_a-zA-Z0-9]+[\/|\\][_a-zA-Z0-9]+[\/|\\]index.js/,
         use: {
-          loader: './config/importModules.js',
+          loader: 'vue-splitter/loader/pagesLoader',
         } 
       }
     ]
