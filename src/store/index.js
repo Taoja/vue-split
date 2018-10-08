@@ -21,7 +21,6 @@ const store = new Vuex.Store({
       } else {
         state.__pageStack.push(toPath) //压栈
       }
-      console.log(state.__pageStack)
     }
   },
   modules: {

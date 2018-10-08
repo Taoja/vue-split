@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <t-router
+    <router-view
     :enter="goback ? 'faster animated staticInLeft' : 'faster animated slideInRight2'"
-    :leave="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'"></t-router>
+    :leave="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'"></router-view>
   </div>
 </template>
 <script>
