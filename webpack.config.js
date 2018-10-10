@@ -1,23 +1,24 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const {packageList, copyStatic, entryPages, importList} = require('vue-splitter')
 const webpack = require('webpack')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const isDev = process.env.NODE_ENV === 'development'
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
+
+const isDev = process.env.NODE_ENV === 'development'
+
+const post = 8081
+const outputDir = 'js'
 
 const config = {
   /**
    * 热更新调试配置
    */
-  devServer: isDev ? {
+  devServer: {
     host: '0.0.0.0',    // 服务器的IP地址，可以使用IP也可以使用localhost
     compress: true,    // 服务端压缩是否开启
-    port: 8081, // 端口
+    port: post, // 端口
     hot: true, //热替换
-    open: false, //是否开启新窗口
     noInfo: false, //清除各种控制台console.log
     overlay: { //页面弹出错误信息
       warnings: false,
@@ -25,7 +26,7 @@ const config = {
     },
     progress: true, //输出进度到控制台
     quiet: true
-  } : {},
+  },
   /**
    * sourceMap配置
    * ---------------------------------------------------------------------------------------
@@ -48,26 +49,24 @@ const config = {
    * tips：+提速 o一般 -缓慢
    * ---------------------------------------------------------------------------------------
    */
-  devtool: isDev ? 'eval' : false,
+  devtool: 'eval',
   /**
    * 入口文件
    */
-  entry: packageList(),
+  // entry: './src/',
   /**
    * 输出配置
    */
   output: {
     path: resolve('dist'),
-    filename: 'js/[name].js'
+    filename: `${outputDir}/[name].js`
   },
   /**
    * 插件
    */
-  plugins: [             
-    new FriendlyErrorsWebpackPlugin(),            
+  plugins: [      
     new webpack.HotModuleReplacementPlugin(), //热更新
     new VueLoaderPlugin(), //vue加载器
-    ...copyStatic()
   ],
   externals: {
     'Vue': 'window.Vue',
@@ -75,7 +74,6 @@ const config = {
     'Vuex': 'window.Vuex',
     'vuex': 'window.Vuex',
     'vue-router': 'window.VueRouter',
-    ...importList
   },
   /**
    * 解析
@@ -135,21 +133,6 @@ const config = {
           loader: 'babel-loader'
         }
       },
-      {
-        test: resolve('src/router/index.js'),
-        use: {
-          loader: 'vue-splitter/loader/routesLoader',
-          options: {
-            entryPages
-          }
-        } 
-      },
-      {
-        test: /src[\/|\\]modules[\/|\\][_a-zA-Z0-9]+[\/|\\][_a-zA-Z0-9]+[\/|\\]index.js/,
-        use: {
-          loader: 'vue-splitter/loader/pagesLoader',
-        } 
-      }
     ]
   }
 }
