@@ -18,12 +18,6 @@
     |-- index.html //html入口
     |-- package.json  //依赖表
     |-- webpack.config.js //项目配置文件
-    |-- config //扩展功能 !重要 分包及自动配置文件
-    |   |-- autoSetConfig.js
-    |   |-- fsList.js
-    |   |-- importModules.js
-    |   |-- splitConf.js
-    |   |-- tRouter.js
     |-- dist //build输出目录
     |-- src //业务逻辑目录
     |   |-- App.vue //项目入口页面，包含页面跳转、页面栈重构代码
@@ -67,14 +61,14 @@
         |-- vuex.min.js // 单页面推荐使用静态文件方式引入，否则每个页面都会打包一份vuex进代码中
 ```
 
-# 命令对应的目录
+# 模块名对应的目录
 
 ```
 entry => ./static + ./index.html + ./src/App.vue + ./src/index.js + ./src/store/ + ./src/router
 
 components => ./src/components/index.js
 
-!entry&&!components => ./src/components/modules/*/
+${name} => ./src/components/modules/${name}/
 ```
 
 # 使用方式
@@ -91,20 +85,23 @@ $ npm run install
 
 ```
 $ npm run dev
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：
 output: entry + components + modules/*
 ```
 
 - 调试单独模块
 
 ```
-$ npm run dev -m base
+$ npm run dev
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：base
 output: entry + components + modules/base/
 ```
 
 - 调试多个模块
 
 ```
-$ npm run dev -m base/demo/test
+$ npm run dev
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：base demo test
 output: entry + components + modules/base/ + modules/demo/ + modules/test/
 ```
 
@@ -114,33 +111,38 @@ output: entry + components + modules/base/ + modules/demo/ + modules/test/
 
 ```
 $ npm run build
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：
 output: entry + components + modules/*
 ```
 
 - 构建入口
 
 ```
-$ npm run build -m entry
+$ npm run build
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：entry
 output: entry
 ```
 
 - 构建分包组件
 
 ```
-$ npm run build -m components
+$ npm run build
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：components
 output: components
 ```
 
 - 构建单独模块
 
 ```
-$ npm run build -m base
+$ npm run build
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：base
 output: modules/base/
 ```
 
 - 构建多个模块
 
 ```
-$ npm run build -m base/demo/test
+$ npm run build
+请输入需要打包的模块名，以空格分隔（不输入则全部打包）：base demo test
 output: modules/base/ + modules/demo/ + modules/test/
 ```

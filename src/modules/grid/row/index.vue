@@ -1,5 +1,5 @@
 <template>
-  <t-page ref="page">
+  <t-page ref="page" :options="{nativeScroll: false}">
     <t-header slot="top">carousel</t-header>
     <div>
       <t-group title="基础用法">

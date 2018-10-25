@@ -1,5 +1,5 @@
 <template>
-  <t-page ref="page">
+  <t-page ref="page" :options="{nativeScroll: false}">
     <t-header slot="top">dialog</t-header>
     <div>
       <t-group title="dialog基本用法">

@@ -1,0 +1,1 @@
+module.exports = ['home', 'k', 'linebar', 'pie', 'funnel', 'radar', 'scatter', 'tree', 'gauge', 'graph']

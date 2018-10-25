@@ -1,5 +1,5 @@
 <template>
-  <t-page ref="page">
+  <t-page ref="page" :options="{nativeScroll: false}">
     <t-header slot="top">演示</t-header>
     <t-all :data="data" @click="click"></t-all>
   </t-page>

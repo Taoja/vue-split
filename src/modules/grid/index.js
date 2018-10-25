@@ -4,5 +4,6 @@ module.exports = [
   'notice',
   'card',
   'all',
-  'row'
+  'row',
+  'home'
 ]
