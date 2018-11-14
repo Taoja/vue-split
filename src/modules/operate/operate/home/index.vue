@@ -18,15 +18,15 @@ export default {
         {
           name: '消息提示',
           msg: 'Toast',
-          url: '/demo/toast'
+          url: '/demo/demo/toast'
         },{
           name: '对话框',
           msg: 'Dialog',
-          url: '/demo/dialog'
+          url: '/demo/demo/dialog'
         },{
           name: '选择框',
           msg: 'ActionSheet',
-          url: '/demo/actionSheet'
+          url: '/demo/demo/actionSheet'
         }
       ]
     }

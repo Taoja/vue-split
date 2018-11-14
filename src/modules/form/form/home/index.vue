@@ -1,6 +1,6 @@
 <template>
   <t-page ref="page" :options="{nativeScroll: false}">
-    <t-header slot="top">导航</t-header>
+    <t-header slot="top">表单</t-header>
     <div>
       <t-group>
         <t-cell isLink v-for="(item, index) in list" :key="index" @click="go(item.url)">
@@ -16,17 +16,13 @@ export default {
     return {
       list: [
         {
-          name: '筛选栏',
-          msg: 'Filter',
-          url: '/demo/filter'
+          name: '输入框',
+          msg: 'Input',
+          url: '/demo/demo/input'
         },{
-          name: '开关',
-          msg: 'Switch',
-          url: '/demo/switch'
-        },{
-          name: '选择栏',
-          msg: 'TabSelect',
-          url: '/demo/tabSelect'
+          name: '块输入框',
+          msg: 'CellInput',
+          url: '/demo/demo/cellInput'
         }
       ]
     }

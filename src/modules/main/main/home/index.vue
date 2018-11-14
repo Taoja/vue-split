@@ -23,39 +23,39 @@ export default {
     return {
       list: [
         {
-          name: '基础',
+          name: '基础1',
           msg: '包含颜色、图标、文本等',
-          url: '/base/home',
+          url: '/base/home/home',
           img: require('@a/image/home/icon1@3x.png')
         },
         {
           name: '视图',
           msg: '包含容器、布局、子栏位等',
-          url: '/grid/home',
+          url: '/grid/grid/home',
           img: require('@a/image/home/icon2@3x.png')
         },
         {
           name: '操作反馈',
           msg: '包含对话框、消息、动作面板等',
-          url: '/operate/home',
+          url: '/operate/operate/home',
           img: require('@a/image/home/icon3@3x.png')
         },
         {
           name: '表单',
           msg: '包含输入框、单选框、复选框等',
-          url: '/form/home',
+          url: '/form/form/home',
           img: require('@a/image/home/icon4@3x.png')
         },
         {
           name: '导航',
           msg: '包含标签栏、导航栏、分段器等',
-          url: '/nav/home',
+          url: '/nav/nav/home',
           img: require('@a/image/home/icon6@3x.png')
         },
         {
           name: '图表',
           msg: '包含折柱混搭、条形图、折线区域图等',
-          url: '/charts/home',
+          url: '/charts/charts/home',
           img: require('@a/image/home/icon7@3x.png')
         }
       ]

@@ -1,9 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import black from './module/black'
-Vue.use(Vuex)
 
-const store = new Vuex.Store({
+const store = {
   state: {
     __pageStack: [],
     goback: false,
@@ -26,6 +23,6 @@ const store = new Vuex.Store({
   modules: {
     black
   }
-})
+}
 
 window.__stores = store

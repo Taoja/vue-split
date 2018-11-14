@@ -1,8 +1,8 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App'
-import tRouter from 'vue-splitter/tRouter'
-import routes from 'routes'
-import store from 'stores'
+import router from '../build/router'
+import stores from 'stores'
 import {
   tPage,
   tHeader,
@@ -26,8 +26,10 @@ Vue.component('sLogo', sLogo)
 Vue.component('tPopup', tPopup)
 Vue.component('tInput', tInput)
 Vue.component('tButton', tButton)
+Vue.use(Vuex)
+Vue.use(router)
+const store = new Vuex.Store(stores)
 
-Vue.use(tRouter, routes)
 window._vm = new Vue({
   el: '#entry',
   template: '<App />',

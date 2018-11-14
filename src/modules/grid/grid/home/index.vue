@@ -18,39 +18,39 @@ export default {
         {
           name: '头部',
           msg: 'Header',
-          url: '/demo/header'
+          url: '/demo/demo/header'
         },{
           name: '布局',
           msg: 'Flex',
-          url: '/demo/flex'
+          url: '/demo/demo/flex'
         },{
           name: '块',
           msg: 'Cell',
-          url: '/demo/cell'
+          url: '/demo/demo/cell'
         },{
           name: '公告',
           msg: 'Notice',
-          url: '/grid/notice'
+          url: '/grid/grid/notice'
         },{
           name: '卡片',
           msg: 'Card',
-          url: '/grid/card'
+          url: '/grid/grid/card'
         },{
           name: '行',
           msg: 'row',
-          url: '/grid/row'
+          url: '/grid/grid/row'
         },{
           name: '轮播图',
           msg: 'Carousel',
-          url: '/grid/carousel'
+          url: '/grid/grid/carousel'
         },{
           name: '栏位',
           msg: 'Grid',
-          url: '/grid/grid'
+          url: '/grid/grid/grid'
         },{
           name: '模板页',
           msg: '',
-          url: '/grid/all'
+          url: '/grid/grid/all'
         },
       ]
     }

@@ -1,1 +1,1 @@
-module.exports = ['home']
+module.exports = ['nav']

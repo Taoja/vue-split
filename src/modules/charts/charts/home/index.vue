@@ -18,39 +18,39 @@ export default {
         {
           name: '折、柱图',
           msg: 'Line & Bar',
-          url: '/charts/linebar'
+          url: '/charts/charts/linebar'
         },{
           name: '饼图',
           msg: 'Pie',
-          url: '/charts/pie'
+          url: '/charts/charts/pie'
         },{
           name: '漏斗图',
           msg: 'Funnel',
-          url: '/charts/funnel'
+          url: '/charts/charts/funnel'
         },{
           name: 'K线图',
           msg: 'K',
-          url: '/charts/k'
+          url: '/charts/charts/k'
         },{
           name: '雷达图',
           msg: 'Radar',
-          url: '/charts/radar'
+          url: '/charts/charts/radar'
         },{
           name: '树图',
           msg: 'Tree',
-          url: '/charts/tree'
+          url: '/charts/charts/tree'
         },{
           name: '散点图',
           msg: 'Scatter',
-          url: '/charts/scatter'
+          url: '/charts/charts/scatter'
         },{
           name: '仪表图',
           msg: 'Gauge',
-          url: '/charts/gauge'
+          url: '/charts/charts/gauge'
         },{
           name: '关系图',
           msg: 'Graph',
-          url: '/charts/graph'
+          url: '/charts/charts/graph'
         },
       ]
     }

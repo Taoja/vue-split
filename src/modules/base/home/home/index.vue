@@ -30,7 +30,7 @@ export default {
         // },{
           name: '按钮',
           msg: 'Button',
-          url: '/demo/button'
+          url: '/demo/demo/button'
         },
       ]
     }

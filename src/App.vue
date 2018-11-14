@@ -1,39 +1,23 @@
 <template>
   <div id="app">
-    <router-view
-    :enter="goback ? 'faster animated staticInLeft' : 'faster animated slideInRight2'"
-    :leave="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'"></router-view>
+    <transition>
+      <router-view
+      :enter="goback ? 'faster animated staticInLeft' : 'faster animated slideInRight2'"
+      :leave="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'"></router-view>
+    </transition>
   </div>
 </template>
 <script>
-import { mapState, mapMutations } from 'vuex'
 export default {
-  computed: {
-    ...mapState(['goback', '__pageStack']),
+  data () {
+    return {
+      goback: false,
+    }
   },
   mounted() {
-    this.$router.beforeEach((to, from, next) => {
-      this.addStack({to: to, from: from}) //压栈
-      next()
+    this.$router.beforeEach((to, from, back) => {
+      this.goback = back
     })
-    this.resetRouterGo()
-  },
-  methods: {
-    ...mapMutations(['addStack']),
-    resetRouterGo () {
-      this.$router.go = (index = -1) => {
-        return new Promise((resolve, reject) => {
-          let position = this.__pageStack.length + index -1 //计算返回在栈中位置
-          let path = this.__pageStack[position] //获取去向名
-          if (path) {
-            resolve(path)
-            this.$router.push(path) //跳转至去向页面
-          } else {
-            reject()
-          }
-        })
-      }
-    }
   }
 }
 </script>
