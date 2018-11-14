@@ -27,7 +27,7 @@ Vue.component('tPopup', tPopup)
 Vue.component('tInput', tInput)
 Vue.component('tButton', tButton)
 Vue.use(Vuex)
-Vue.use(router)
+Vue.use(router, '/main/main/home')
 const store = new Vuex.Store(stores)
 
 window._vm = new Vue({

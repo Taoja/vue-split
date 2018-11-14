@@ -57,6 +57,12 @@ export default {
           msg: '包含折柱混搭、条形图、折线区域图等',
           url: '/charts/charts/home',
           img: require('@a/image/home/icon7@3x.png')
+        },
+        {
+          name: '测试',
+          msg: '包含折柱混搭、条形图、折线区域图等',
+          url: '/test/test/test',
+          img: require('@a/image/home/icon7@3x.png')
         }
       ]
     }

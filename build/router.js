@@ -30,8 +30,10 @@ export default {
       methods: {
         setPath (packages, modules, pages) {
           var path = `${packages}/${modules}/${pages}`
-          this.pageList = require('routes')
-          if (path in this.pageList) {
+          this.pageList = require('routes').map((a) => {
+            return `${a.package}/${a.module}/${a.page}`
+          })
+          if (this.pageList.includes(path)) {
             if (this.hasCached.includes(path)) {
               this.beforeComponent = this.viewComponent
               this.viewComponent = window.__pages[path].default
@@ -89,21 +91,24 @@ export default {
         }
       },
       created () {
-        this.$router.$rt = Router({
-          '/:package/:module/:page': this.setPath
-        }).configure({
-          notfound () {
-            history.back()
-            throw Error('路由路径错误！')
+        options && (window.location = `#${options}`)
+        setTimeout(() => {
+          this.$router.$rt = Router({
+            '/:package/:module/:page': this.setPath
+          }).configure({
+            notfound () {
+              history.back()
+              throw Error('路由路径错误！')
+            }
+          }).init()
+          this.$router.go = (index) => {
+            let position = this.pageStack.length + index -1 //计算返回在栈中位置
+            let path = this.pageStack[position] //获取去向名
+            if (path) {
+              this.$router.push(path) //跳转至去向页面
+            }
           }
-        }).init()
-        this.$router.go = (index) => {
-          let position = this.pageStack.length + index -1 //计算返回在栈中位置
-          let path = this.pageStack[position] //获取去向名
-          if (path) {
-            this.$router.push(path) //跳转至去向页面
-          }
-        }
+        }, 100)
       }
     }),
     Vue.prototype.$router = {

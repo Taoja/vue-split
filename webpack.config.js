@@ -43,7 +43,7 @@ const config = {
   dev: {
     port: 8081,
     host: '0.0.0.0',
-    devtool: 'cheap-module-source-map'
+    devtool: 'eval'
   },
   build: {
     devtool: false

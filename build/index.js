@@ -5,7 +5,7 @@ const rl = require('./rl')
 const env = require('./env')
 const packageList = require('./ps')
 const webpackDevServer = require('webpack-dev-server')
-const { packages } = require('./fs.js')
+const { packages, pages } = require('./fs.js')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
@@ -54,7 +54,7 @@ function startWebpack () {
 function resetOptions (md, env) {
   var pl = packageList(md)
   options.entry = pl
-  options.externals.routes = JSON.stringify(pl)
+  options.externals.routes = JSON.stringify(pages)
   options.externals.components = 'window.__components'
   options.externals.stores = 'window.__stores'
   options.plugins.push(
