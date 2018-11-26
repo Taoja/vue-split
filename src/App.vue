@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <transition>
-      <router-view
-      :enter="goback ? 'faster animated staticInLeft' : 'faster animated slideInRight2'"
-      :leave="goback ? 'faster animated slideOutRight2' : 'faster animated staticOutLeft'"></router-view>
+    <transition
+    :enter-active-class="'faster animated staticInLeft'"
+    :leave-active-class="'faster animated slideOutRight2'">
+      <router-view></router-view>
     </transition>
   </div>
 </template>
@@ -15,9 +15,9 @@ export default {
     }
   },
   mounted() {
-    this.$router.beforeEach((to, from, back) => {
-      this.goback = back
-    })
+    // this.$router.beforeEach((to, from, back) => {
+    //   this.goback = back
+    // })
   }
 }
 </script>

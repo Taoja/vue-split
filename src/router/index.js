@@ -1,3 +1,1 @@
-module.exports = {
-  entry: '/main/home'
-}
+module.exports = 'main/main/home'
