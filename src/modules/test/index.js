@@ -1,1 +1,5 @@
-module.exports = ['test']
+module.exports = {
+  test: {
+    test: {}
+  }
+}

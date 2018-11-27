@@ -1,1 +1,5 @@
-module.exports = ['home']
+module.exports = {
+  home: {
+    home: {}
+  }
+}

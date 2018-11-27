@@ -1,1 +1,5 @@
-module.exports = ['form']
+module.exports = {
+  form: {
+    home: {}
+  }
+}

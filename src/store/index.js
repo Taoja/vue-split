@@ -2,7 +2,7 @@ import black from './module/black'
 
 const store = {
   state: {
-    __pageStack: [],
+    __pageStack: ['/main/main/home'],
     goback: false,
   },
   mutations: {

@@ -1,1 +1,5 @@
-module.exports = ['operate']
+module.exports = {
+  operate: {
+    home: {}
+  }
+}
