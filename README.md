@@ -1,5 +1,7 @@
 # vue-split
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Taoja/vue-split.svg)](https://greenkeeper.io/)
+
 单页面分包
 
 # 全局依赖
